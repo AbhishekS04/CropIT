@@ -18,11 +18,9 @@ export const metadata: Metadata = {
 };
 
 export default async function PublicStatsPage() {
-  // Get total number of URLs
   const [urlCount] = await db.select({ value: count() }).from(urls);
   const totalUrls = urlCount?.value || 0;
 
-  // Get total number of clicks
   const [clicksResult] = await db
     .select({ total: sql<number>`sum(${urls.clicks})` })
     .from(urls);
