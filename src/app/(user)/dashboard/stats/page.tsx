@@ -154,7 +154,7 @@ export default function StatsPage() {
         <Card className="shadow-sm">
           <CardHeader className="pb-2">
             <CardTitle>Total Clicks</CardTitle>
-            <CardDescription>Total clicks acroos all URLs</CardDescription>
+            <CardDescription>Total clicks across all URLs</CardDescription>
           </CardHeader>
           <CardContent>
             <p className="text-3xl font-bold">{totalClicks}</p>
@@ -187,7 +187,7 @@ export default function StatsPage() {
               <TabsContent value="bar" className="min-h-[400px] mt-4">
                 <Card>
                   <CardHeader>
-                    <CardTitle>URL Perfomance</CardTitle>
+                    <CardTitle>URL Performance</CardTitle>
                     <CardDescription>
                       Top 5 URLs with most clicks
                     </CardDescription>
@@ -232,7 +232,7 @@ export default function StatsPage() {
                         </>
                       ) : (
                         <>
-                          Coudl improve with only {5 - avgClicks} more clicks{" "}
+                          Could improve with only {5 - avgClicks} more clicks{" "}
                           <TrendingDown className="size-4 text-amber-500" />
                         </>
                       )}
@@ -246,7 +246,7 @@ export default function StatsPage() {
               <TabsContent value="pie" className="min-h-[400px] mt-4">
                 <Card className="flex flex-col">
                   <CardHeader className="items-center pb-0">
-                    <CardTitle>URL Clicks Distrubtion</CardTitle>
+                    <CardTitle>URL Clicks Distribution</CardTitle>
                     <CardDescription>
                       Top {topUrls.length} URLs with most clicks
                     </CardDescription>

@@ -15,8 +15,8 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 
 export const metadata: Metadata = {
-  title: "Flagged URLs | Admin | ShortLink",
-  description: "Review potentially unsafe URLs in the ShortLink application",
+  title: "Flagged URLs | Admin | CropIT",
+  description: "Review potentially unsafe URLs in the CropIT application",
 };
 
 export default async function FlaggedURLsPage({

@@ -17,8 +17,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Admin Dashboard | ShirtLink",
-  description: "Admin dashboard for ShirtLink",
+  title: "Admin Dashboard | CropIT",
+  description: "Admin dashboard for CropIt",
 };
 
 export default function AdminPage() {

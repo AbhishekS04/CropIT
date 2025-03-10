@@ -99,10 +99,9 @@ export function EditUrlModal({
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
           <DialogTitle>Edit Short URL</DialogTitle>
-          <DialogDescription>
-            Customize the short code for this URL. The short code must be unique
-            and can only contain letters, numbers, hyphens, and underscores.
-          </DialogDescription>
+            <DialogDescription>
+            Enter a unique short code for this URL. It should be between 3 and 255 characters long and can include letters, numbers, hyphens, and underscores.
+            </DialogDescription>
         </DialogHeader>
 
         <Form {...form}>

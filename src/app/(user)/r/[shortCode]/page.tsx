@@ -73,7 +73,7 @@ export default async function RedirectPage(props: { params: Params }) {
           URL Not Found
         </h1>
         <p className="text-muted-foreground mb-6">
-          The short link you&apos;re trying to access doesn&apos;t exist or has
+          The short link you&apos;re trying to access does&apos;t exist or has
           been removed.
         </p>
         <Button asChild>

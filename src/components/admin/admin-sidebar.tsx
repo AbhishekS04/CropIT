@@ -29,7 +29,7 @@ export function AdminSidebar() {
   return (
     <div className="hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0 md:pt-14 md:z-30 border-r bg-muted/40">
       <div className="flex h-14 items-center border-b px-4">
-        <h2 className="text-lg font-semibold">Admin Dashbboard</h2>
+        <h2 className="text-lg font-semibold">Admin Dashboard || A&S</h2>
       </div>
       <nav className="flex-1 overflow-auto py-4">
         <ul className="space-y-1 px-2">

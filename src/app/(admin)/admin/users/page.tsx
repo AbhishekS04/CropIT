@@ -16,8 +16,8 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 
 export const metadata: Metadata = {
-  title: "User Management | Admin | ShortLink",
-  description: "Manage users in the ShortLink application",
+  title: "User Management | Admin | CropIt",
+  description: "Manage users in the CropIT application",
 };
 
 export default async function UserManagementPage({
