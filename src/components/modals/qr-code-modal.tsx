@@ -25,6 +25,7 @@ export function QRCodeModal({
   const [isGenerating, setIsGenerating] = useState(false);
 
   const generateQRCode = useCallback(async () => {
+    if (!url) return; // Prevent generating if URL is not available
     setIsGenerating(true);
     try {
       const dataUrl = await QRCode.toDataURL(url, {
@@ -47,10 +48,10 @@ export function QRCodeModal({
   }, [url]);
 
   useEffect(() => {
-    if (isOpen && shortCode) {
+    if (isOpen && shortCode && url) {
       generateQRCode();
     }
-  }, [isOpen, shortCode, generateQRCode]);
+  }, [isOpen, shortCode, url, generateQRCode]);
 
   const downloadQRCode = () => {
     if (!qrCodeDataUrl) return;

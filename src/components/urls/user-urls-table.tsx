@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import { Copy, Edit, ExternalLink, QrCode, Trash2Icon } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
 import { formatDistanceToNow } from "date-fns";
 import { toast } from "sonner";
@@ -24,7 +25,6 @@ interface UserUrlsTableProps {
 export function UserUrlsTable({ urls }: UserUrlsTableProps) {
   const [isDeleting, setIsDeleting] = useState<number | null>(null);
   const [localUrls, setLocalUrls] = useState<Url[]>(urls);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [qrCodeUrl, setQrCodeUrl] = useState<string>("");
   const [qrCodeShortCode, setQrCodeShortCode] = useState<string>("");
   const [isQrCodeModalOpen, setIsQrCodeModalOpen] = useState(false);
@@ -33,9 +33,16 @@ export function UserUrlsTable({ urls }: UserUrlsTableProps) {
     id: number;
     shortCode: string;
   } | null>(null);
+  const [baseUrl, setBaseUrl] = useState<string>("");
+
+  // ✅ Fix: Set base URL on client-side to avoid "window is not defined"
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setBaseUrl(process.env.NEXT_PUBLIC_APP_URL || window.location.origin);
+    }
+  }, []);
 
   const copyToClipboard = async (shortCode: string) => {
-    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || window.location.origin;
     const shortUrl = `${baseUrl}/r/${shortCode}`;
 
     try {
@@ -74,7 +81,6 @@ export function UserUrlsTable({ urls }: UserUrlsTableProps) {
   };
 
   const showQrCode = (shortCode: string) => {
-    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || window.location.origin;
     const shortUrl = `${baseUrl}/r/${shortCode}`;
     setQrCodeUrl(shortUrl);
     setQrCodeShortCode(shortCode);
@@ -89,7 +95,7 @@ export function UserUrlsTable({ urls }: UserUrlsTableProps) {
   const handleEditSuccess = (newShortCode: string) => {
     if (!urlToEdit) return;
 
-    // update the short code in the local state
+    // Update the short code in the local state
     setLocalUrls((prev) =>
       prev.map((url) =>
         url.id === urlToEdit.id ? { ...url, shortCode: newShortCode } : url
@@ -123,8 +129,6 @@ export function UserUrlsTable({ urls }: UserUrlsTableProps) {
           </thead>
           <tbody>
             {localUrls.map((url) => {
-              const baseUrl =
-                process.env.NEXT_PUBLIC_APP_URL || window.location.origin;
               const shortUrl = `${baseUrl}/r/${url.shortCode}`;
 
               return (
@@ -195,7 +199,7 @@ export function UserUrlsTable({ urls }: UserUrlsTableProps) {
                         className="size-8 text-destructive hover:text-destructive"
                       >
                         {isDeleting === url.id ? (
-                          <div className="size-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
+                          <div className="size-4 animate-spin border-2 border-current border-t-transparent" />
                         ) : (
                           <Trash2Icon className="size-4" />
                         )}
@@ -212,17 +216,9 @@ export function UserUrlsTable({ urls }: UserUrlsTableProps) {
       <QRCodeModal
         isOpen={isQrCodeModalOpen}
         onOpenChange={setIsQrCodeModalOpen}
-        shortCode={qrCodeShortCode} url={""}      />
-
-      {urlToEdit && (
-        <EditUrlModal
-          isOpen={isEditModalOpen}
-          onOpenChange={setIsEditModalOpen}
-          urlId={urlToEdit.id}
-          currentShortCode={urlToEdit.shortCode}
-          onSuccess={handleEditSuccess}
-        />
-      )}
+        shortCode={qrCodeShortCode}
+        url={qrCodeUrl}
+      />
     </>
   );
 }
