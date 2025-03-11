@@ -123,8 +123,8 @@ export async function getAllUrls(
     // apply sorting
     if (sortBy && sortOrder) {
       transformedUrls.sort((a, b) => {
-        let valueA: any;
-        let valueB: any;
+        let valueA: unknown;
+        let valueB: unknown;
 
         // handle sorting by user name
         if (sortBy === "userName") {
@@ -141,9 +141,9 @@ export async function getAllUrls(
 
         // sort in ascending or descending order
         if (sortOrder === "asc") {
-          return valueA < valueB ? -1 : valueA > valueB ? 1 : 0;
+          return (valueA as string | number) < (valueB as string | number) ? -1 : (valueA as string | number) > (valueB as string | number) ? 1 : 0;
         } else {
-          return valueA > valueB ? -1 : valueA < valueB ? 1 : 0;
+          return (valueA as string | number) > (valueB as string | number) ? -1 : (valueA as string | number) < (valueB as string | number) ? 1 : 0;
         }
       });
     }

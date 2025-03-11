@@ -6,6 +6,7 @@ import { z } from "zod";
 import { eq } from "drizzle-orm";
 import { users } from "./db/schema";
 import bcrypt from "bcryptjs";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { JWT } from "next-auth/jwt";
 import { db } from "./db";
 

@@ -3,7 +3,7 @@
 import { signIn } from "next-auth/react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { Button } from "../ui/button";
@@ -26,13 +26,12 @@ const loginSchema = z.object({
 
 type LoginFormValues = z.infer<typeof loginSchema>;
 
-export function LoginForm() {
+function LoginFormContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  // check if user just registered
   useEffect(() => {
     const registered = searchParams.get("registered");
     if (registered === "true") {
@@ -40,7 +39,6 @@ export function LoginForm() {
         description: "You have been registered successfully. Please sign in.",
       });
 
-      // remove the query param
       const newUrl = new URL(window.location.href);
       newUrl.searchParams.delete("registered");
       router.replace(newUrl.toString(), undefined);
@@ -192,5 +190,13 @@ export function LoginForm() {
         </form>
       </Form>
     </div>
+  );
+}
+
+export function LoginForm() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <LoginFormContent />
+    </Suspense>
   );
 }

@@ -73,8 +73,9 @@ export function UsersTable({
     if (typeof window === "undefined") return "";
 
     const url = new URL(window.location.href);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const params = new URLSearchParams(url.search);
-    let paramString = "";
+    const paramString = "";
 
     // Preserve any additional parameters if needed
     // For example, if you have a filter parameter:

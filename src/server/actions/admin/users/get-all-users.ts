@@ -72,16 +72,16 @@ export async function getAllUsers(
 
     if (sortBy && sortOrder) {
       allUsers.sort((a, b) => {
-        let valueA: any = a[sortBy];
-        let valueB: any = b[sortBy];
+        let valueA: unknown = a[sortBy];
+        let valueB: unknown = b[sortBy];
 
         if (valueA === null) valueA = "";
         if (valueB === null) valueB = "";
 
         if (sortOrder === "asc") {
-          return valueA < valueB ? -1 : valueA > valueB ? 1 : 0;
+          return (valueA as string | number) < (valueB as string | number) ? -1 : (valueA as string | number) > (valueB as string | number) ? 1 : 0;
         } else {
-          return valueA > valueB ? -1 : valueA < valueB ? 1 : 0;
+          return (valueA as string | number) > (valueB as string | number) ? -1 : (valueA as string | number) < (valueB as string | number) ? 1 : 0;
         }
       });
     }

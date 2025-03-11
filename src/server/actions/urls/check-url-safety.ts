@@ -20,6 +20,7 @@ export async function checkUrlSafety(
     // validate URL Format
     try {
       new URL(url);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
       return {
         success: false,

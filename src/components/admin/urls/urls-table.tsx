@@ -42,7 +42,6 @@ import {
   ExternalLink,
   Loader2,
   MoreHorizontal,
-  User,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";

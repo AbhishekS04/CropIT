@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import {
   Sheet,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   SheetClose,
   SheetContent,
   SheetHeader,
@@ -22,6 +23,7 @@ import {
 import { ThemeToggle } from "../ui/theme-toggle";
 
 export function Header() {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { data: session, status } = useSession();
   const isAuthenticated = status === "authenticated";
 

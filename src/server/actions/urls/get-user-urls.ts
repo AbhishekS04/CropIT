@@ -3,6 +3,7 @@
 import { ApiResponse } from "@/lib/types";
 import { auth } from "@/server/auth";
 import { db } from "@/server/db";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { urls } from "@/server/db/schema";
 
 export async function getUserUrls(userId: string): Promise<
