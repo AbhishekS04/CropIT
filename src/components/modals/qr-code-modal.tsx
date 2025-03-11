@@ -11,21 +11,20 @@ import { Download } from "lucide-react";
 interface QRCodeModalProps {
   isOpen: boolean;
   onOpenChange: (open: boolean) => void;
-  url: string;
   shortCode: string;
 }
 
 export function QRCodeModal({
   isOpen,
   onOpenChange,
-  url,
   shortCode,
 }: QRCodeModalProps) {
   const [qrCodeDataUrl, setQrCodeDataUrl] = useState<string | null>(null);
   const [isGenerating, setIsGenerating] = useState(false);
 
   const generateQRCode = useCallback(async () => {
-    if (!url) return;
+    const domain = "https://cropit.vercel.app"; // Replace with your actual domain
+    const url = `${domain}/${shortCode}`;
     setIsGenerating(true);
     try {
       const dataUrl = await QRCode.toDataURL(url, {
@@ -45,19 +44,19 @@ export function QRCodeModal({
     } finally {
       setIsGenerating(false);
     }
-  }, [url]);
+  }, [shortCode]);
 
   useEffect(() => {
-    if (isOpen && url) {
+    if (isOpen && shortCode) {
       generateQRCode();
     }
-  }, [isOpen, url, generateQRCode]);
+  }, [isOpen, shortCode, generateQRCode]);
 
   const downloadQRCode = () => {
     if (!qrCodeDataUrl) return;
     const link = document.createElement("a");
     link.href = qrCodeDataUrl;
-    link.download = `shortlink-${shortCode}.png`;
+    link.download = `CropIT-${shortCode}.png`;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

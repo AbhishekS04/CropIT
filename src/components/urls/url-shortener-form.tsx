@@ -74,7 +74,7 @@ export function UrlShortenerForm() {
         }
       }
 
-      if (session?.user && pathname.includes("/dashboard")) router.refresh();
+      if (session?.user && pathname?.includes("/dashboard")) router.refresh();
       if (!session?.user) setShowSignupDialog(true);
     } catch {
       setError("An error occurred. Please try again.");

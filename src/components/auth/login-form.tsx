@@ -33,7 +33,7 @@ function LoginFormContent() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const registered = searchParams.get("registered");
+    const registered = searchParams?.get("registered");
     if (registered === "true") {
       toast.success("Account created successfully", {
         description: "You have been registered successfully. Please sign in.",

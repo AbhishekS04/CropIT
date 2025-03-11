@@ -20,7 +20,7 @@ export function UrlSearch({ initialSearch }: UrlSearchProps) {
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
 
-    const params = new URLSearchParams(searchParams.toString());
+    const params = new URLSearchParams(searchParams?.toString());
 
     // reset to first page when searching
     params.set("page", "1");
@@ -37,7 +37,7 @@ export function UrlSearch({ initialSearch }: UrlSearchProps) {
   const clearSearch = () => {
     setSearch("");
 
-    const params = new URLSearchParams(searchParams.toString());
+    const params = new URLSearchParams(searchParams?.toString());
     params.delete("search");
     params.set("page", "1");
 

@@ -18,7 +18,7 @@ export function UserSearch({ initialSearch }: UserSearchProps) {
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
 
-    const params = new URLSearchParams(searchParams.toString());
+    const params = new URLSearchParams(searchParams?.toString());
 
     if (searchParams) {
       params.set("search", searchTerm);
@@ -33,7 +33,7 @@ export function UserSearch({ initialSearch }: UserSearchProps) {
 
   const clearSearch = () => {
     setSearchTerm("");
-    const params = new URLSearchParams(searchParams.toString());
+    const params = new URLSearchParams(searchParams?.toString());
     params.delete("search");
     params.set("page", "1");
     router.push(`/admin/users?${params.toString()}`);

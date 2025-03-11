@@ -103,7 +103,7 @@ export async function shortenUrl(formData: FormData): Promise<
       flagReason,
     });
 
-    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
+    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "https://cropit.vercel.app";
     const shortUrl = `${baseUrl}/r/${shortCode}`;
 
     revalidatePath("/");

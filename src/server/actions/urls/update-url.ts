@@ -78,7 +78,7 @@ export async function updateUrl(
       })
       .where(eq(urls.id, id));
 
-    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
+    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "https://cropit.vercel.app";
     const shortUrl = `${baseUrl}/r/${customCode}`;
 
     revalidatePath("/dashboard");

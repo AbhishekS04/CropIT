@@ -94,7 +94,7 @@ export default function StatsPage() {
   const pieChartData = useMemo(() => {
     return topUrls.map((url, index) => ({
       browser: url.shortCode,
-      vistors: url.clicks,
+      visitors: url.clicks,
       fill: `hsl(var(--chart-${index + 1}))`,
     }));
   }, [topUrls]);
@@ -263,7 +263,7 @@ export default function StatsPage() {
                         />
                         <Pie
                           data={pieChartData}
-                          dataKey="vistors"
+                          dataKey="visitors"
                           nameKey="browser"
                           innerRadius={60}
                           strokeWidth={5}

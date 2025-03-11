@@ -239,9 +239,9 @@ export function UrlsTable({
     }
   };
 
-  const truncateUrl = (url: string, maxLenght = 50) => {
-    if (url.length <= maxLenght) return url;
-    return url.substring(0, maxLenght) + "...";
+  const truncateUrl = (url: string, maxLength = 50) => {
+    if (url.length <= maxLength) return url;
+    return url.substring(0, maxLength) + "...";
   };
 
   const handleManageFlaggedUrl = async (
@@ -424,7 +424,7 @@ export function UrlsTable({
                       </div>
                     ) : (
                       <span className="text-muted-foreground text-sm">
-                        Anyonymous
+                        Anonymous
                       </span>
                     )}
                   </TableCell>

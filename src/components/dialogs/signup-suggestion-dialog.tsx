@@ -44,7 +44,7 @@ export function SignupSuggestionDialog({
         </DialogHeader>
         <div className="flex flex-col space-y-4 py-4">
           <div className="rounded-md bg-muted p-4">
-            <p className="text-sm font-medium">Your shortened URL</p>
+            <p className="text-sm font-medium">login to unlock</p>
             <p className="mt-1 break-all font-mono text-sm">{shortUrl}</p>
           </div>
           <div className="space-y-2">

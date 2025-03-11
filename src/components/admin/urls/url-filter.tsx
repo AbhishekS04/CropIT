@@ -16,7 +16,7 @@ export function UrlFilter({ initialFilter }: UrlFilterProps) {
 
   const createQueryString = useCallback(
     (name: string, value: string) => {
-      const params = new URLSearchParams(searchParams.toString());
+      const params = new URLSearchParams(searchParams?.toString());
       params.set("page", "1");
       params.set(name, value);
       return params.toString();
@@ -66,7 +66,7 @@ export function UrlFilter({ initialFilter }: UrlFilterProps) {
         className="gap-2 text-orange-600 dark:text-orange-400"
       >
         <AlertTriangle className="size-4" />
-        Innappropriate Content
+        Inappropriate Content
       </Button>
 
       <Button

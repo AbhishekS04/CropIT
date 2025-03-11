@@ -18,12 +18,12 @@ export function AdminSidebar() {
 
     if (
       item.href === "/admin/urls" &&
-      pathname.includes("/admin/urls/flagged")
+      pathname?.includes("/admin/urls/flagged")
     ) {
       return false;
     }
 
-    return pathname === item.href || pathname.startsWith(`${item.href}/`);
+    return pathname === item.href || pathname?.startsWith(`${item.href}/`);
   };
 
   return (
