@@ -170,7 +170,14 @@ export function UrlShortenerForm() {
 
       <SignupSuggestionDialog isOpen={showSignupDialog} onOpenChange={setShowSignupDialog} shortUrl={shortUrl || ""} />
 
-      {shortUrl && shortCode && <QRCodeModal isOpen={isQrCodeModalOpen} onOpenChange={setIsQrCodeModalOpen} url={shortUrl} shortCode={shortCode} />}
+      {shortUrl && shortCode && (
+        <QRCodeModal 
+          isOpen={isQrCodeModalOpen} 
+          onOpenChange={setIsQrCodeModalOpen} 
+          url={shortUrl} 
+          shortCode={shortCode} 
+        />
+      )}
     </>
   );
 }

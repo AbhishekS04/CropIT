@@ -24,6 +24,7 @@ interface UserUrlsTableProps {
 export function UserUrlsTable({ urls }: UserUrlsTableProps) {
   const [isDeleting, setIsDeleting] = useState<number | null>(null);
   const [localUrls, setLocalUrls] = useState<Url[]>(urls);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [qrCodeUrl, setQrCodeUrl] = useState<string>("");
   const [qrCodeShortCode, setQrCodeShortCode] = useState<string>("");
   const [isQrCodeModalOpen, setIsQrCodeModalOpen] = useState(false);
@@ -211,9 +212,7 @@ export function UserUrlsTable({ urls }: UserUrlsTableProps) {
       <QRCodeModal
         isOpen={isQrCodeModalOpen}
         onOpenChange={setIsQrCodeModalOpen}
-        url={qrCodeUrl}
-        shortCode={qrCodeShortCode}
-      />
+        shortCode={qrCodeShortCode} url={""}      />
 
       {urlToEdit && (
         <EditUrlModal

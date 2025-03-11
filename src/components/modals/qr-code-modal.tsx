@@ -12,19 +12,19 @@ interface QRCodeModalProps {
   isOpen: boolean;
   onOpenChange: (open: boolean) => void;
   shortCode: string;
+  url: string;
 }
 
 export function QRCodeModal({
   isOpen,
   onOpenChange,
   shortCode,
+  url,
 }: QRCodeModalProps) {
   const [qrCodeDataUrl, setQrCodeDataUrl] = useState<string | null>(null);
   const [isGenerating, setIsGenerating] = useState(false);
 
   const generateQRCode = useCallback(async () => {
-    const domain = "https://cropit.vercel.app"; // Replace with your actual domain
-    const url = `${domain}/${shortCode}`;
     setIsGenerating(true);
     try {
       const dataUrl = await QRCode.toDataURL(url, {
@@ -44,7 +44,7 @@ export function QRCodeModal({
     } finally {
       setIsGenerating(false);
     }
-  }, [shortCode]);
+  }, [url]);
 
   useEffect(() => {
     if (isOpen && shortCode) {
