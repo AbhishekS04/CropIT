@@ -114,7 +114,7 @@ export function UrlShortenerForm() {
                   <FormControl>
                     <div className="flex items-center">
                       <span className="text-sm text-muted-foreground mr-2">
-                        {process.env.NEXT_PUBLIC_APP_URL || origin}/r/
+                        {process.env.NEXT_PUBLIC_APP_URL || origin}/CropIT/
                       </span>
                       <Input
                         placeholder="Custom code (optional)"
