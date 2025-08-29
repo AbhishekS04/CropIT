@@ -9,7 +9,7 @@
 
 **CropIT** is a modern, feature-rich URL shortening service built with Next.js, offering an intuitive interface for shortening, managing, and tracking your links. This project was developed as a mini-project for our college classes by:
 
-- [Abhishek Srivastava](https://github.com/AbhishekS04) - The code wrangler who believes indentation is a love language
+- [Abhishek Singh](https://github.com/AbhishekS04) - The code wrangler who believes indentation is a love language
 - [Snehasish Mondal](https://github.com/Snehasish321) - The UI wizard who once fixed a bug by turning his laptop off and on again
 
 ## ✨ Features
