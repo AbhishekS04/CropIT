@@ -1,10 +1,5 @@
 # 🌱 CropIT - The URL Shortener That Doesn't Cut Corners
 
-<div align="center">
-  <img src="public/file.svg" alt="CropIT Logo" width="120" />
-  <p><em>Crop your links, expand your reach!</em></p>
-</div>
-
 ## 🚀 Overview
 
 **CropIT** is a modern, feature-rich URL shortening service built with Next.js, offering an intuitive interface for shortening, managing, and tracking your links. This project was developed as a mini-project for our college classes by:
